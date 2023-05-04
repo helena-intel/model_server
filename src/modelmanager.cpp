@@ -50,7 +50,9 @@
 #include "dags/pipelinedefinition.hpp"
 #include "filesystem.hpp"
 #include "gcsfilesystem.hpp"
+#if (MEDIAPIPE_DISABLE == 0)
 #include "inference/classification_calculator.h"
+#endif
 #include "localfilesystem.hpp"
 #include "logging.hpp"
 #if (MEDIAPIPE_DISABLE == 0)
@@ -72,7 +74,9 @@ static constexpr uint16_t MAX_CONFIG_JSON_READ_RETRY_COUNT = 2;
 const std::string DEFAULT_MODEL_CACHE_DIRECTORY = "/opt/cache";
 
 // Just a simple check if geti calculators are build
+#if (MEDIAPIPE_DISABLE == 0)
 mediapipe::ClassificationCalculator classCalcInit;
+#endif
 
 ModelManager::ModelManager(const std::string& modelCacheDirectory, MetricRegistry* registry) :
     ieCore(std::make_unique<ov::Core>()),
