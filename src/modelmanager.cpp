@@ -50,6 +50,7 @@
 #include "dags/pipelinedefinition.hpp"
 #include "filesystem.hpp"
 #include "gcsfilesystem.hpp"
+#include "inference/classification_calculator.h"
 #include "localfilesystem.hpp"
 #include "logging.hpp"
 #if (MEDIAPIPE_DISABLE == 0)
@@ -69,6 +70,9 @@ namespace ovms {
 
 static constexpr uint16_t MAX_CONFIG_JSON_READ_RETRY_COUNT = 2;
 const std::string DEFAULT_MODEL_CACHE_DIRECTORY = "/opt/cache";
+
+// Just a simple check if geti calculators are build
+mediapipe::ClassificationCalculator classCalcInit;
 
 ModelManager::ModelManager(const std::string& modelCacheDirectory, MetricRegistry* registry) :
     ieCore(std::make_unique<ov::Core>()),

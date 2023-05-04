@@ -70,7 +70,7 @@ cc_library(
                 "@mediapipe//mediapipe/framework/port:parse_text_proto",
                 "@mediapipe//mediapipe/framework/port:status",
                 "@mediapipe_calculators//:mediapipe_calculators",
-                "@model_api//:adapter_api",
+                "@geti_calculators//inference:inference_calculators",
             ],
             "//:disable_mediapipe" : [],
         }),

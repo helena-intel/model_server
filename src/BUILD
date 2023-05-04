@@ -103,6 +103,7 @@ cc_shared_library(
     ] + select({
         "//conditions:default": [
             "@mediapipe//:__subpackages__",
+            "@geti_calculators//:__subpackages__",
             "@mediapipe_calculators//:__subpackages__",
             "@model_api//:__subpackages__",
             "@arm_neon_2_x86_sse//:__subpackages__",

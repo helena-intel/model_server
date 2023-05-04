@@ -352,21 +352,6 @@ new_local_repository(
 )
 ################## END OF OPENCV DEPENDENCY ##########
 
-new_git_repository(
-    name = "model_api",
-    remote = "https:///github.com/openvinotoolkit/model_api/",
-    build_file_content = """
-cc_library(
-    name = "adapter_api",
-    hdrs = ["model_api/cpp/adapters/include/adapters/inference_adapter.h",],
-    includes = ["model_api/cpp/adapters/include"],
-    deps = ["@linux_openvino//:openvino"],
-    visibility = ["//visibility:public"],
-)
-    """,
-    commit = "7e163416c60ba9ccdf440c6c049d6c7e7137e144"
-)
-
 git_repository(
     name = "oneTBB",
     branch = "v2021.8.0",
@@ -379,4 +364,32 @@ new_local_repository(
     name = "mediapipe_calculators",
     build_file = "@//third_party/mediapipe_calculators:BUILD",
     path = "/ovms/third_party/mediapipe_calculators",
+)
+
+# Geti Mediapipe Calculators
+# Uncomment below once the repository goes public
+#git_repository(
+#    name = "geti_calculators",
+#    remote = "git@github.com:intel-innersource/applications.ai.geti.mediapipe.git",
+#    branch = "main",
+#)
+http_archive(
+    name = "geti_calculators",
+    sha256 = "b9c05e8c1a41e5ba4b984ff0454b79e09c792f0b1dd2eaa9bb43a89318512416",
+    strip_prefix = "geti.mediapipe",
+    urls = ["http://s3.toolbox.iotg.sclab.intel.com/mediapipe/repository/geti.mediapipe.be4d5c.tar.gz"],
+)
+
+# OpenVINO Model API
+new_git_repository(
+    name = "model_api",
+    build_file_content = """\
+filegroup(
+    name = "all_srcs",
+    srcs = glob(["model_api/cpp/**"]),
+    visibility = ["//visibility:public"],
+)
+""",
+    remote = "https://github.com/openvinotoolkit/model_api.git",
+    commit = "cb483472c2ea3a016fbafe703cf6b246564e3965",
 )
