@@ -375,9 +375,9 @@ new_local_repository(
 #)
 http_archive(
     name = "geti_calculators",
-    sha256 = "b9c05e8c1a41e5ba4b984ff0454b79e09c792f0b1dd2eaa9bb43a89318512416",
+    sha256 = "8a8a82e1cee28c70f44b0c55942eed910416b60a003ece76f556b978eb7eea1a",
     strip_prefix = "geti.mediapipe",
-    urls = ["http://s3.toolbox.iotg.sclab.intel.com/mediapipe/repository/geti.mediapipe.be4d5c.tar.gz"],
+    urls = ["http://s3.toolbox.iotg.sclab.intel.com/mediapipe/repository/geti.mediapipe.3aee6a.tar.gz"],
 )
 
 # OpenVINO Model API
