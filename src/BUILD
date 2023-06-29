@@ -808,6 +808,7 @@ cc_test(
         "test/mediapipe/graphadd.pbtxt",
         "test/mediapipe/graphtfpassthrough.pbtxt",
         "test/mediapipe/graphaddadapterfull.pbtxt",
+        "test/mediapipe/graphdummy_tf.pbtxt",
         "test/mediapipe/graphdummy.pbtxt",
         "test/mediapipe/graphdummyadapterfull.pbtxt",
         "test/mediapipe/graphWithParams.pbtxt",
